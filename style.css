@@ -1,0 +1,246 @@
+/* --- ADD TO BOTTOM OF STYLE.CSS --- */
+body {
+    position: relative;
+    background: radial-gradient(circle at top left, rgba(255, 102, 163, 0.22), transparent 22%),
+                radial-gradient(circle at bottom right, rgba(123, 223, 242, 0.18), transparent 20%),
+                linear-gradient(135deg, #130f1d 0%, #1d1b2d 40%, #0f111d 100%);
+    background-size: 200% 200%;
+    animation: backgroundShift 22s ease-in-out infinite;
+    color: #FFFFFF; /* White text for readability */
+    font-family: 'Comic Sans MS', cursive, sans-serif; /* Fun font style */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%; /*forces it to be exactly 100% of the viewport width */
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle at 15% 20%, rgba(255, 102, 163, 0.14), transparent 12%),
+                radial-gradient(circle at 80% 15%, rgba(123, 223, 242, 0.1), transparent 10%),
+                radial-gradient(circle at 50% 85%, rgba(168, 130, 193, 0.12), transparent 15%);
+    pointer-events: none;
+    opacity: 0.95;
+    filter: blur(20px);
+}
+
+.cafe-container {
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 28px;
+    padding: 44px 56px;
+    background: rgba(15, 14, 24, 0.72);
+    backdrop-filter: blur(16px);
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.35), inset 0 0 18px rgba(255, 255, 255, 0.04);
+    animation: floatCard 12s ease-in-out infinite;
+}
+
+.idle-gif-container {
+    margin: 50px 0; /* Add space above and below */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.timer-display {
+    font-size: 6rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-align: center;
+    margin: 20px 0 28px;
+    padding-bottom: 18px;
+    color: #FF66A3;
+    border-bottom: 3px dotted rgba(255, 102, 163, 0.8);
+}
+
+.status-text {
+    text-align: center;
+    font-size: 2.4rem;
+    font-weight: 900;
+    margin-bottom: 14px;
+    background: linear-gradient(135deg, #FF66A3, #A882C1, #7BDFF2);
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: glowText 2.5s ease-in-out infinite, breathe 4s ease-in-out infinite;
+}
+
+@keyframes glowText {
+    0%, 100% {
+        text-shadow: 0 0 10px rgba(255, 102, 163, 0.7), 0 0 20px rgba(120, 209, 242, 0.3);
+    }
+    50% {
+        text-shadow: 0 0 24px rgba(255, 102, 163, 1), 0 0 32px rgba(120, 209, 242, 0.5);
+    }
+}
+
+@keyframes backgroundShift {
+    0%, 100% {
+        background-position: 0% 0%;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
+}
+
+@keyframes floatCard {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+@keyframes breathe {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.02);
+    }
+}
+
+.controls {
+    margin-bottom: 24px;
+}
+
+
+.controls button,
+.mode-toggle button {
+    min-width: 120px;
+    min-height: 54px;
+    padding: 16px 24px;
+    margin: 0 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 18px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.controls button:hover,
+.mode-toggle button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 30px rgba(255, 102, 163, 0.22);
+    border-color: rgba(255, 255, 255, 0.25);
+}
+
+.controls button:active,
+.mode-toggle button:active {
+    transform: translateY(0);
+}
+
+.mode-toggle {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    margin-top: 18px;
+}
+
+#start-btn {
+    background: linear-gradient(135deg, #FF66A3, #FFB3E6);
+    color: #1E1E1E;
+}
+
+#pause-btn {
+    background: linear-gradient(135deg, #FFD966, #FFB347);
+    color: #1E1E1E;
+}
+
+#reset-btn {
+    background: linear-gradient(135deg, #7BDFF2, #57C7E0);
+    color: #1E1E1E;
+}
+
+.mode-toggle button {
+    background: rgba(255, 255, 255, 0.12);
+    color: #FFFFFF;
+}
+
+.mode-toggle button.active {
+    background: linear-gradient(135deg, #A882C1, #FF66A3);
+    color: #FFFFFF;
+}
+
+#timer-gif {
+    max-width: 210px;
+    max-height: 220px;
+    width: 100%;
+    height: auto;
+    transition: transform 0.2s ease, max-width 0.2s ease, box-shadow 0.2s ease;
+    animation: floatGif 6s ease-in-out infinite;
+    
+    /* Timer animation effect */
+    border: 4px solid rgba(255, 255, 255, 0.18);
+    border-radius: 24px;
+    background: rgba(255,255,255,0.12);
+    box-shadow: 0 18px 40px rgba(255, 102, 163, 0.18), 0 0 0 1px rgba(255, 255, 255, 0.05);
+    
+    padding: 14px;
+}
+
+@keyframes floatGif {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+.gif-grow {
+    transform: scale(1.2);
+}
+
+#loading-gif {
+    width: 100px;
+    height: auto;
+    margin-bottom: 18px;
+}
+
+.fade-out{
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+
+}
+
+#loading-screen {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(30, 30, 30, 0.95);
+    color: #FFFFFF;
+    z-index: 9999;
+}
+
+.loader-box {
+    text-align: center;
+    padding: 30px 40px;
+    border-radius: 18px;
+    background: rgba(0, 0, 0, 0.75);
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.45);
+}
+
+.spinner {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 18px;
+    border: 6px solid rgba(255, 255, 255, 0.18);
+    border-top-color: #FF66A3;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}

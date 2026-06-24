@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Badtz maru Pomodoro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="loading-screen">
+        <div class="loader-box">
+            <img id="loading-gif" src="loading.gif" alt="Loading animation">
+            <p>Loading Pomodoro...</p>
+        </div>
+    </div>
+
+    <div class="cafe-container">
+        <h1 class="status-text">Focus Session</h1>
+        
+        <!-- --- ADD THIS NEW BLOCK BELOW --- -->
+        <div class="idle-gif-container">
+            <!-- Starting with the idle GIF -->
+            <img id="timer-gif" src="idle.gif" alt="idle Animation">
+        </div>
+        <!-- --------------------------------- -->
+
+        <div class="timer-display">25:00</div>
+        
+        <div class="controls">
+            <button id="start-btn">Start</button>
+            <button id="pause-btn">Pause</button>
+            <button id="reset-btn">Reset</button>
+        </div>
+
+        <div class="mode-toggle">
+            <button id="work-btn" class="active">Work (25m)</button>
+            <button id="break-btn">Break (5m)</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
